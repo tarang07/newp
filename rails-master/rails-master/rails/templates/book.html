@@ -1,0 +1,99 @@
+
+<head>
+<script type="text/javascript">
+   var count=0;
+    function obj(){
+      var o={train_no:"",source:"",dest:"",class:"",number_of_seats:""}
+      o.train_no=document.getElementById('train_no').value;
+      o.source=document.getElementById('source').value;
+      o.dest=document.getElementById('dest').value;
+      o.class=document.getElementById('class').value;
+      o.number_of_seats=document.getElementById('number_of_seats').value;
+      return o;
+    }
+
+
+    function adding(){
+      // if(!checking())
+    
+      
+       var pnr=Math.floor((Math.random() * 100000) + 1);
+      
+      var x=obj();
+      localStorage.setItem(pnr,JSON.stringify(x));
+        localStorage.setItem(document.getElementById('train_no').value,(localStorage.getItem(document.getElementById('train_no').value)-document.getElementById('number_of_seats').value));
+        alert("Your ticket has been booked with pnr number: "+pnr);
+      
+    }
+
+    function checking()
+    {
+      if(localStorage.getItem(document.getElementById('train_no').value))
+      {
+       alert(localStorage.getItem(document.getElementById('train_no').value)-document.getElementById('number_of_seats').value);
+       var x = window.localStorage.getItem(document.getElementById('train_no').value);
+       var y = document.getElementById('number_of_seats').value;
+        if( x > y)
+         alert("SEATS ARE AVAILABLE"); 
+
+        else
+          alert("SORRY SEATS ARE NOT AVAILABLE"); 
+      }
+    else
+      alert("PLEASE ENTER A VALID TRAIN ID");
+    }
+
+    
+
+  
+    </script>
+</head>
+
+
+
+
+
+
+<h2>Enter the details:</h2>
+  <form role="form">
+
+  <!-- for storing the record -->
+    <div class="form-group">
+      <label for="train_no">Train number:</label>
+      <input type="text" class="form-control" id="train_no">
+    </div>
+    
+    <div class="form-group">
+      <label for="source">Source station:</label>
+      <input type="text" class="form-control" id="source" >
+    </div>
+
+    <div class="form-group">
+      <label for="dest">Destination station:</label>
+      <input type="text" class="form-control" id="dest" >
+    </div>
+
+    <div class="form-group">
+      <label for="class">Class:</label>
+      <input type="text" class="form-control" id="class">
+    </div>
+  
+    <div class="form-group">
+      <label for="number_of_seats">number of seats:</label>
+      <input type="text" class="form-control" id="number_of_seats" >
+    </div>
+   
+    <button onclick="checking()" class="btn btn-default">Check availability</button>
+    <button onclick="adding()" class="btn btn-default">Book tickets</button>
+ 
+
+
+    <!-- for deleting and seeing a particular record -->
+     <!--  <div class="form-group">
+      <label for="vin">VIN:</label>
+      <input type="text" class="form-control" id="vin2" placeholder="enter VIN">
+    </div>
+    <button onclick="removing()" class="btn btn-default">DELETE THIS RECORD</button>
+    <button onclick="see()" class="btn btn-default">SEE THIS RECORD</button> -->
+    
+  </form>

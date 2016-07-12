@@ -1,0 +1,29 @@
+
+<head>
+<script > 
+function see(){
+
+  alert(localStorage.getItem(document.getElementById('pnr_no').value));
+
+  }
+
+</script>
+</head>
+
+
+ <h2>Enter the details:</h2>
+  <form role="form">
+
+  
+    <div class="form-group">
+      <label for="pnr_no">Enter the pnr number:</label>
+      <input type="text" class="form-control" id="pnr_no">
+    </div>
+    
+    
+
+    
+   
+    <button onclick="see()" class="btn btn-default">Click here</button>
+   
+  </form>
